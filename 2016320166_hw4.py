@@ -255,10 +255,12 @@ class RB:
     def black_height(self):
         bh = 0
         tree = self.root
-        while tree.left != self.nil:
+        while tree.right != self.nil:
             if tree.color == black:
                     bh +=1
-            tree = tree.left            
+            tree = tree.right
+        if tree.color == black:
+            bh +=1
         return bh
 
         
