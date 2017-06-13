@@ -82,7 +82,8 @@ class RB:
             x.p.left = y
         else:
             x.p.right = y
-        y.p = x.p
+        if y != self.nil:
+            y.p = x.p
         
 
     def RB_insert(self, n):
@@ -189,6 +190,8 @@ class RB:
 
 
     def RB_delete_fix(self, x):
+        if x is self.nil:
+            return
         while x != self.root and x.color == black:
             if x == x.p.left:
                 w = x.p.right
